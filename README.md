@@ -1,3 +1,3 @@
-# Quadratic_equation module for PGStart
+# Quadratic_equation module
 
 - [Задание](./Task.md)
