@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 TEST_LIBS=-lcheck
 ifeq ($(shell uname), Linux)
-	TEST_LIBS+= -lm -lpthread -lrt -lsubunit
+	TEST_LIBS+= -lm -lsubunit
 endif
 LIB_NAME=quadratic_equation.a
 PRGRM_NAME=test_quadratic_equation
@@ -14,19 +14,19 @@ LIB_NAME=quadratic_lib.a
 
 all: clean compile
 
-compile:
+compile: 
 	$(CC) $(CFLAGS) -c quadratic_equation.c
 
 check: clean $(LIB_NAME)
-	$(CC) $(CFLAGS) $(TEST_FILES) $(TEST_LIBS) $(LIB_NAME) -o $(PRGRM_NAME)
-	./$(PRGRM_NAME)
+	@$(CC) $(CFLAGS) $(TEST_FILES) $(TEST_LIBS) $(LIB_NAME) -o $(PRGRM_NAME)
+	@./$(PRGRM_NAME)
 
 $(LIB_NAME): compile
-	ar -rcs $(LIB_NAME) $(OBJ_FILES)
-	rm -f $(OBJ_FILES)
+	@ar -rcs $(LIB_NAME) $(OBJ_FILES)
+	@rm -f $(OBJ_FILES)
 
 clean:
-	rm -f $(PRGRM_NAME) $(OBJ_FILES) $(LIB_NAME)
+	@rm -f $(PRGRM_NAME) $(OBJ_FILES) $(LIB_NAME)
  
 style:
 	clang-format -style=Google -i *.c

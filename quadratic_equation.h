@@ -3,6 +3,7 @@
 
 #include <math.h>
 
+// структура для хранения значений корней
 typedef struct {
   double first_root;
   double second_root;

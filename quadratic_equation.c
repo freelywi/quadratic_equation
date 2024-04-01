@@ -1,5 +1,13 @@
 #include "quadratic_equation.h"
 
+/**
+ * @brief Функция вычисления корней квадратного уравнения
+ * @param a параметр a
+ * @param b параметр b
+ * @param c параметр c
+ * @return Структура с результатами вычислений
+ */
+
 quadratic_roots solve_equation(double a, double b, double c) {
   if (isnan(a) || isnan(b) || isnan(c) || isinf(a) || isinf(b) || isinf(c)) {
     return (quadratic_roots){NAN, NAN};
